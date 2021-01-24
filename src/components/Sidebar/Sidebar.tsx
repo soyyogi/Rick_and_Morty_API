@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './Sidebar.css';
 
 function Sidebar() {
     const [episodes, setEpisodes] = useState([]);
-    const [info, setInfo] = useState([]);
+    const [info, setInfo] = useState<any>();
     const [data, setData] = useState<any>();
+    const prevRef = useRef<HTMLButtonElement>(null);
+    const nextRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
         (async () => {
@@ -19,6 +21,23 @@ function Sidebar() {
         setInfo(data?.info)
     }, [data])
 
+    useEffect(() => {
+        if(info?.prev === null) {
+            const node = prevRef.current;
+            if(node) {
+                node.setAttribute('disabled', 'true')
+                node.classList.remove('active')
+            }
+        };
+        if(info?.next === null) {
+            const node = nextRef.current;
+            if(node) {
+                node.setAttribute('disabled', 'true')
+                node.classList.remove('active')
+            }
+        };
+    }, [info])
+
 
     return (
         <section className="sidebar">
@@ -27,8 +46,8 @@ function Sidebar() {
                     return <li key={epi.id} className="sidebar_list_item">{epi.episode}</li>
                 })}
                 <div className="sidebar_nav_buttons">
-                    <button className="prev">&#8678;</button>
-                    <button className="next">&#8680;</button>
+                    <button ref={prevRef} className="prev active">&#8678;</button>
+                    <button ref={nextRef} className="next active">&#8680;</button>
                 </div>
             </ul>
         </section>
