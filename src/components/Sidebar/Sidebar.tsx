@@ -3,8 +3,8 @@ import axios from 'axios';
 import './Sidebar.css';
 
 function Sidebar() {
-    const [episodes, setEpisodes] = useState(null);
-    const [data, setData] = useState({});
+    const [episodes, setEpisodes] = useState([]);
+    const [data, setData] = useState<any>();
 
     useEffect(() => {
         (async () => {
@@ -14,12 +14,17 @@ function Sidebar() {
     }, [])
 
     useEffect(() => {
-        console.log(data)
+        setEpisodes(data?.results)
     }, [data])
+
 
     return (
         <section className="sidebar">
-            
+            <ul className="sidebar_list">
+                {episodes && episodes.map((epi: any) => {
+                    return <li key={epi.id} className="sidebar_list_item">{epi.episode}</li>
+                })}
+            </ul>
         </section>
     )
 }
