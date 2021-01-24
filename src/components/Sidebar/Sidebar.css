@@ -3,3 +3,26 @@
     width: 20vw;
     background-color: #3B1021;
 }
+
+.sidebar_list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 30px;
+    color: #eee;
+    overflow-y: scroll;
+}
+
+.sidebar_list_item {
+    width: fit-content;
+    list-style: none;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.sidebar_list_item:hover {
+    cursor: pointer;
+    border-bottom: 2px solid #fff;
+    font-weight: 700;
+}
