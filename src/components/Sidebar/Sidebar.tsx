@@ -22,22 +22,43 @@ function Sidebar() {
     }, [data])
 
     useEffect(() => {
-        if(info?.prev === null) {
+        if (info?.prev === null) {
             const node = prevRef.current;
-            if(node) {
+            if (node) {
                 node.setAttribute('disabled', 'true')
                 node.classList.remove('active')
-            }
-        };
-        if(info?.next === null) {
+            };
+        } else {
+            const node = prevRef.current;
+            if (node) {
+                node.removeAttribute('disabled')
+                node.classList.add('active')
+            };
+        }
+        if (info?.next === null) {
             const node = nextRef.current;
-            if(node) {
+            if (node) {
                 node.setAttribute('disabled', 'true')
                 node.classList.remove('active')
-            }
-        };
+            };
+        } else {
+            const node = nextRef.current;
+            if (node) {
+                node.removeAttribute('disabled')
+                node.classList.add('active')
+            };
+        }
     }, [info])
 
+    async function prevButtonClick() {
+        const response = await axios.get(info?.prev);
+        setData(response.data)
+    }
+
+    async function nextButtonClick() {
+        const response = await axios.get(info?.next);
+        setData(response.data)
+    }
 
     return (
         <section className="sidebar">
@@ -46,8 +67,8 @@ function Sidebar() {
                     return <li key={epi.id} className="sidebar_list_item">{epi.episode}</li>
                 })}
                 <div className="sidebar_nav_buttons">
-                    <button ref={prevRef} className="prev active">&#8678;</button>
-                    <button ref={nextRef} className="next active">&#8680;</button>
+                    <button ref={prevRef} onClick={prevButtonClick} className="prev active">&#8678;</button>
+                    <button ref={nextRef} onClick={nextButtonClick} className="next active">&#8680;</button>
                 </div>
             </ul>
         </section>
