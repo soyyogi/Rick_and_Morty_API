@@ -60,11 +60,16 @@ function Sidebar() {
         setData(response.data)
     }
 
+    function listItemClick(id: number) {
+        const episode = episodes?.filter((epi: any) => epi.id === id)
+        console.log(episode)
+    }
+
     return (
         <section className="sidebar">
             <ul className="sidebar_list">
                 {episodes && episodes.map((epi: any) => {
-                    return <li key={epi.id} className="sidebar_list_item">{epi.episode}</li>
+                    return <li key={epi.id} onClick={() => listItemClick(epi.id)} className="sidebar_list_item">{epi.episode}</li>
                 })}
                 <div className="sidebar_nav_buttons">
                     <button ref={prevRef} onClick={prevButtonClick} className="prev active">&#8678;</button>
