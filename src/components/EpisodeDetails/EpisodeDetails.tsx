@@ -1,4 +1,5 @@
 import React from 'react';
+import CharacterCard from '../CharacterCard/CharacterCard';
 import './EpisodeDetails.css';
 
 interface Props {
@@ -16,6 +17,9 @@ function EpisodeDetails({ episode }: Props) {
                     <span className="air_date">{episode[0]? episode[0]['air_date'] : ''}</span>
                     <span className="episode_code">{episode[0]? episode[0]['episode'] : ''}</span>
                 </p>
+            </div>
+            <div className="episodeDetails_characters">
+                <CharacterCard image="https://rickandmortyapi.com/api/character/avatar/1.jpeg" name="Rick Sanchez" status="Alive" species="Human" />
             </div>
         </section>
     );
