@@ -1,0 +1,36 @@
+.characterCard {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    margin: 15px;
+    border: rgba(0, 0, 0, 0.3) solid 1px;
+    border-radius: 15px;
+}
+
+.characterCard_image img {
+    width: 150px;
+    height: 150px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    object-fit: contain;
+}
+
+.characterCard_details {
+    padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.characterCard_details .title {
+    font-weight: 700;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.characterCard_details .species,
+.characterCard_details .status {
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.7);
+    margin-right: 10px;
+}

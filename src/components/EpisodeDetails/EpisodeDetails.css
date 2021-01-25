@@ -1,7 +1,14 @@
 .episodeDetails {
-    margin: 20px;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+}
+
+.episodeDetails_header {
+    margin: 20px;
+    margin-left: 35px;
 }
 
 .episodeDetails_header .title {
@@ -12,7 +19,7 @@
 
 .episodeDetails_header .air_date {
     padding-right: 10px;
-    border-right: rgba(0, 0, 0, 0.7) 2px solid;
+    /* border-right: rgba(0, 0, 0, 0.7) 2px solid; */
 }
 
 .episodeDetails_header .air_date,
@@ -21,4 +28,11 @@
     font-size: 18px;
     color: rgba(0, 0, 0, 0.7);
     margin-right: 10px;
+}
+
+.episodeDetails_characters {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    margin-top: 0;
 }

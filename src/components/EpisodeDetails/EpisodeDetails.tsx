@@ -20,6 +20,7 @@ function EpisodeDetails({ episode }: Props) {
             </div>
             <div className="episodeDetails_characters">
                 <CharacterCard image="https://rickandmortyapi.com/api/character/avatar/1.jpeg" name="Rick Sanchez" status="Alive" species="Human" />
+                <CharacterCard image="https://rickandmortyapi.com/api/character/avatar/1.jpeg" name="Rick Sanchez Rick Sanchez" status="Alive" species="Human" />
             </div>
         </section>
     );
