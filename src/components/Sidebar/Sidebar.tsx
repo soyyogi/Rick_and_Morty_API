@@ -2,7 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './Sidebar.css';
 
-function Sidebar() {
+interface Props {
+    passToParent: Function;
+}
+
+function Sidebar({ passToParent }: Props) {
     const [episodes, setEpisodes] = useState([]);
     const [info, setInfo] = useState<any>();
     const [data, setData] = useState<any>();
@@ -62,7 +66,7 @@ function Sidebar() {
 
     function listItemClick(id: number) {
         const episode = episodes?.filter((epi: any) => epi.id === id)
-        console.log(episode)
+        passToParent(episode)
     }
 
     return (

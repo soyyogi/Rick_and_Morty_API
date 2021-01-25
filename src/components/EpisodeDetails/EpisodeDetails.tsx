@@ -1,10 +1,15 @@
 import React from 'react';
 import './EpisodeDetails.css';
 
-function EpisodeDetails() {
+interface Props {
+    episode: {}[]
+}
+
+function EpisodeDetails({ episode }: Props) {
+    episode.length ? console.log(episode) : console.log('not selected')
+
     return (
         <section className="episodeDetails">
-            Episode Name
         </section>
     );
 }
