@@ -1,0 +1,24 @@
+.episodeDetails {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.episodeDetails_header .title {
+    font-weight: 700;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.episodeDetails_header .air_date {
+    padding-right: 10px;
+    border-right: rgba(0, 0, 0, 0.7) 2px solid;
+}
+
+.episodeDetails_header .air_date,
+.episodeDetails_header .episode_code {
+    font-weight: 700;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.7);
+    margin-right: 10px;
+}
